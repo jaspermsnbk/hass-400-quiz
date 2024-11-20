@@ -97,6 +97,17 @@
             ],
             "scripts": []
           }
+        },
+        "e2e": {
+          "builder": "playwright-ng-schematics:playwright",
+          "options": {
+            "devServerTarget": "hass-final-project:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "hass-final-project:serve:production"
+            }
+          }
         }
       }
     }
