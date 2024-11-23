@@ -72,3 +72,24 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.paper {
+    line-height: 1.4;
+
+}
+
+@media (max-width: 500px){
+    .paper {
+        width: 100%;
+    }
+}
+
+@media (min-width: 500px){
+    .paper {
+        width: 50%;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
