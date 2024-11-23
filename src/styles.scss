@@ -54,3 +54,21 @@ body {
 ::view-transition-new(slide-me){
     animation: 1s cubic-bezier(0, 0, 0.2, 1) both slide-in,
 } 
+
+.max-width {
+    width: 100%;
+}
+
+.margin-1x {
+    margin: 10px;
+}
+
+.margin-sides-1x {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.margin-t-b-1x {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
