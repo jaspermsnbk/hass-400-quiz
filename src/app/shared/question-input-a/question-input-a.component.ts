@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {MatRadioModule} from '@angular/material/radio';
+import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
+import {MatRadioGroup, MatRadioModule} from '@angular/material/radio';
+import { DEVMODE } from '../util/quiz.util';
 
 @Component({
   selector: 'app-question-input-a',
@@ -7,16 +8,30 @@ import {MatRadioModule} from '@angular/material/radio';
   templateUrl: './question-input-a.component.html',
   styleUrl: './question-input-a.component.scss'
 })
-export class QuestionInputAComponent {
+export class QuestionInputAComponent implements OnInit{
+
   @Input() leftText?: string = "disagree"
   @Input() rightText?: string = "agree"
-
-  @Input() score!: number;
+  vals = [-2, -1, 0, 1, 2]
   @Output() scoreChange = new EventEmitter<number>();
 
+  @ViewChild("radio", {static:true}) radioGroup!: ElementRef<MatRadioGroup>;
+
+  ngOnInit(): void {
+    // this.radioGroup.nativeElement.value = this.pickRandVal()
+    console.log(this.radioGroup);
+  }
+
   updateScore(newScore: number){
-    console.log(newScore)
-    this.score = newScore;
-    this.scoreChange.emit(this.score)
+    this.scoreChange.emit(newScore)
+  }
+
+  pickRandVal(){
+    if(DEVMODE){
+      const tempIdx = Math.floor(Math.random() * 5)
+      // console.log(tempIdx);
+      return this.vals[tempIdx]
+    }
+    return 0
   }
 }

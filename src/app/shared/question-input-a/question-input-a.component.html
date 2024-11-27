@@ -1,4 +1,4 @@
-<div class="max-width q-input" >
+<div class="max-width q-input">
     <div class="row-1">
         <div>
             {{leftText}}
@@ -7,19 +7,18 @@
         <div>
             nuetral
         </div>
-        <div>
-        </div>
+        <div></div>
         <div>
             {{rightText}}
         </div>
     </div>
     <div>
-        <mat-radio-group class="row-2" (change)="updateScore($event.value)">
-            <mat-radio-button [value]="-2"/>
-            <mat-radio-button [value]="-1"/>
-            <mat-radio-button [value]="0"/>
-            <mat-radio-button [value]="1"/>
-            <mat-radio-button [value]="2"/>
+        <mat-radio-group class="row-2" (change)="updateScore($event.value)" #radio>
+            <mat-radio-button [value]="-2" />
+            <mat-radio-button [value]="-1" />
+            <mat-radio-button [value]="0" />
+            <mat-radio-button [value]="1" />
+            <mat-radio-button [value]="2" />
         </mat-radio-group>
     </div>
 </div>

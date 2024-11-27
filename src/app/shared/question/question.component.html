@@ -14,7 +14,7 @@
             </div>
         </mat-card-subtitle> -->
         <mat-card-content>
-            <app-question-input-a [(score)]="score"/>
+            <app-question-input-a (scoreChange)="updateScore($event)"/>
             <app-question-input-b />
         </mat-card-content>
     </mat-card>

@@ -4,13 +4,14 @@
         {{q.title}}
     </div>
     <!-- not sure if the question order should work like this or not -->
-    @for (cat of q.categories; track $index) { 
+    @for (cat of q.categories; track $index; let catIdx = $index) { 
         <div>
             category title: 
             {{cat.title}}
         </div>
-        @for (q of cat.questions; track $index) {
-            <app-question [question]="q"/>
+        @for (q of cat.questions; track $index; let qIdx = $index) {
+            <app-question [question]="q" (scoreChange)="updateScore($event, catIdx, qIdx)"/>
         }
     }
+    <button mat-button (click)="handleSubmit($event)">Submit</button>
 }

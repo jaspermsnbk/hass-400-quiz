@@ -13,11 +13,11 @@ import { QuestionInputBComponent } from "../question-input-b/question-input-b.co
 export class QuestionComponent {
   @Input() question!: Question;
 
-  @Input() score: number = 0;
+  // @Input() score: number = 0;
   @Output() scoreChange = new EventEmitter<number>();
 
   updateScore(newScore: number){
-    this.score = newScore;
-    this.scoreChange.emit(this.score)
+    // this.score = newScore;
+    this.scoreChange.emit(newScore)
   }
 }

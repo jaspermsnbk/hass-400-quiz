@@ -6,12 +6,14 @@ import {
   ResultQuiz,
 } from "../models/quiz.model";
 
+export const DEVMODE = true
+
 export function calculateQuiz(quiz: ResultQuiz) {
   return quiz.resCategories.map(calculateCategory);
 }
 
 export function calculateCategory(cat: ResultCategory) {
-  cat.resQuestions.reduce((acc, q) => {
+  return cat.resQuestions.reduce((acc, q) => {
     acc += q.alpha * q.score;
     return acc;
   }, 0);
