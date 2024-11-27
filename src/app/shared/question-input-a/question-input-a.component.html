@@ -1,16 +1,25 @@
-<div class="flex flex-flow-col max-width flex-j-space-b" >
-    <div>
+<div class="max-width q-input" >
+    <div class="row-1">
         <div>
             {{leftText}}
         </div>
-
+        <div></div>
+        <div>
+            nuetral
+        </div>
+        <div>
+        </div>
+        <div>
+            {{rightText}}
+        </div>
     </div>
-
     <div>
-        neutral
-    </div>
-
-    <div>
-        {{rightText}}
+        <mat-radio-group class="row-2" (change)="updateScore($event.value)">
+            <mat-radio-button [value]="-2"/>
+            <mat-radio-button [value]="-1"/>
+            <mat-radio-button [value]="0"/>
+            <mat-radio-button [value]="1"/>
+            <mat-radio-button [value]="2"/>
+        </mat-radio-group>
     </div>
 </div>
