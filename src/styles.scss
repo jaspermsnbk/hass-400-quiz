@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@use '@angular/material' as mat;
 html, body { height: 100%; }
 body { 
     margin: 0; 
@@ -78,13 +78,16 @@ body {
 
 }
 
-@media (max-width: 500px){
+@media (max-width: 550px){
     .paper {
-        width: 100%;
+        width: 85%;
     }
 }
 
-@media (min-width: 500px){
+.main-title {
+    width: 90%;
+}
+@media (min-width: 550px){
     .paper {
         width: 50%;
     }

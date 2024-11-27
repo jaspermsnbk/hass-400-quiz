@@ -19,7 +19,6 @@
   "useTabs": false,
   "embeddedLanguageFormatting": "auto",
   "vueIndentScriptAndStyle": false,
-  "experimentalTernaries": false,
-  "filepath": "/home/jasper/.config/Code/User/settings.json",
-  "parser": "typescript"
+  "experimentalTernaries": true,
+  "filepath": "/home/jasper/.config/Code/User/settings.json"
 }

@@ -1,1 +1,16 @@
-<p>quiz works!</p>
+<div>starting quiz</div>
+@if (QUIZ; as q) {
+    <div>
+        {{q.title}}
+    </div>
+    <!-- not sure if the question order should work like this or not -->
+    @for (cat of q.categories; track $index) { 
+        <div>
+            category title: 
+            {{cat.title}}
+        </div>
+        @for (q of cat.questions; track $index) {
+            <app-question [question]="q"/>
+        }
+    }
+}
