@@ -1,4 +1,7 @@
 # HassFinalProject
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3c8eeabc-c4a6-4fcc-a21e-c439ed923811/deploy-status)](https://app.netlify.com/sites/rhetoric-and-ideology-quiz/deploys)
+
+
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.0.
 
