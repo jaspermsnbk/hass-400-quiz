@@ -72,7 +72,7 @@ body {
     }
 }
 
-::view-transition-new(slide-me){
+::view-transition-new(.slide-me){
     animation: 1s cubic-bezier(0, 0, 0.2, 1) both slide-in,
 } 
 
