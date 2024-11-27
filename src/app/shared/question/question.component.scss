@@ -1,0 +1,21 @@
+@media (max-width: 650px){
+    .question {
+        width: 95%;
+    }
+}
+@media (min-width: 650px){
+    .question {
+        width: 80%;
+    }
+}
+@media (min-width: 800px){
+    .question {
+        width: 65%;
+    }
+}
+
+@media (min-width: 1200px){
+    .question {
+        width: 50%;
+    }
+}

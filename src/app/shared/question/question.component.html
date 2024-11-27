@@ -1,16 +1,22 @@
-<mat-card class="margin-t-b-1x margin-sides-1x" >
-    <mat-card-title>
-        <div class="margin-1x">
+<div class="flex-center-a-j">
+    <mat-card class="margin-t-b-1x margin-sides-1x text-center question">
+        <mat-card-title style="margin-top: 15px; margin-bottom: 15px;">
             {{question.title}}
-        </div>
-    </mat-card-title>
-    <!-- <mat-card-subtitle>
-        <div class="margin-1x">
-        {{question.description}}
-        </div>
-    </mat-card-subtitle> -->
-    <mat-card-content>
 
-    </mat-card-content>
-</mat-card>
+        </mat-card-title>
+        <!-- <mat-card-title>
+            <div class="margin-1x">
+            </div>
+        </mat-card-title> -->
+        <!-- <mat-card-subtitle>
+            <div class="margin-1x">
+            {{question.description}}
+            </div>
+        </mat-card-subtitle> -->
+        <mat-card-content>
+            <app-question-input-a [(score)]="score"/>
+            <app-question-input-b />
+        </mat-card-content>
+    </mat-card>
 
+</div>    
