@@ -1,0 +1,7 @@
+@if(resultsVecSig && resultsVecSig(); as res){
+    @for (det of res.details; track $index) {
+        <div>
+            {{det.title}}: {{det.score}}
+        </div>
+    }
+}

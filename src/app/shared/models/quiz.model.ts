@@ -1,7 +1,7 @@
-import { resetQuiz } from "../util/quiz.util";
+import { resultQuizFromQuiz } from "../util/quiz.util";
 
 export class Quiz {
-  title!:string;
+  title!: string;
   categories!: Category[];
 }
 
@@ -17,22 +17,22 @@ export class Question {
 }
 
 export class ResultQuiz {
-  title!:string;
-  resCategories!: ResultCategory [];
-  constructor(title:string, categories: ResultCategory []) {
-    this.title = title
-    this.resCategories = categories
+  title!: string;
+  resCategories!: ResultCategory[];
+  constructor(title: string, categories: ResultCategory[]) {
+    this.title = title;
+    this.resCategories = categories;
   }
 }
 
 export class ResultCategory {
-  score = 0
+  score = 0;
   title!: string;
-  resQuestions!: ResultQuestion [];
-  constructor(title:string, questions: ResultQuestion []) {
+  resQuestions!: ResultQuestion[];
+  constructor(title: string, questions: ResultQuestion[]) {
     this.score = 0;
     this.title = title;
-    this.resQuestions = questions
+    this.resQuestions = questions;
   }
 }
 
@@ -43,6 +43,18 @@ export class ResultQuestion {
   constructor(title: string, alpha?: number) {
     this.score = 0;
     this.title = title;
-    this.alpha = alpha !== undefined ? alpha : 1
+    this.alpha = alpha !== undefined ? alpha : 1;
+  }
+}
+export class CategoryResult {
+  title!: string;
+  score!: number;
+}
+export class ResultVector {
+  details: { title: string; score: number }[];
+  basic: number[];
+  constructor(details?: CategoryResult []) {
+    this.details = details || [];
+    this.basic = this.details.map((cr) => cr.score);
   }
 }

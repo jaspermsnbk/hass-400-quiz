@@ -4,12 +4,13 @@ import {
   ResultCategory,
   ResultQuestion,
   ResultQuiz,
+  ResultVector,
 } from "../models/quiz.model";
 
-export const DEVMODE = false
+export const DEVMODE = true
 
 export function calculateQuiz(quiz: ResultQuiz) {
-  return quiz.resCategories.map(calculateCategory);
+  return new ResultVector(quiz.resCategories.map(calculateCategory))
 }
 
 export function calculateCategory(cat: ResultCategory) {
@@ -21,7 +22,7 @@ export function calculateCategory(cat: ResultCategory) {
   }
 }
 
-export function resetQuiz(quiz: Quiz) {
+export function resultQuizFromQuiz(quiz: Quiz) {
   return new ResultQuiz(
     quiz.title,
     quiz.categories.map((c) => {
