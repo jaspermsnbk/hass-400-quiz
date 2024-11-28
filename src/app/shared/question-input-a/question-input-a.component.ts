@@ -10,12 +10,11 @@ import { log } from '../util/general.util';
   styleUrl: './question-input-a.component.scss'
 })
 export class QuestionInputAComponent implements OnInit{
+  vals = [-2, -1, 0, 1, 2]
 
   @Input() leftText?: string = "disagree"
   @Input() rightText?: string = "agree"
-  vals = [-2, -1, 0, 1, 2]
   @Output() scoreChange = new EventEmitter<number>();
-
   @ViewChild("radio", {static:true}) radioGroup!: ElementRef<MatRadioGroup>;
 
   ngOnInit(): void {

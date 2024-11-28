@@ -13,10 +13,12 @@ export function calculateQuiz(quiz: ResultQuiz) {
 }
 
 export function calculateCategory(cat: ResultCategory) {
-  return cat.resQuestions.reduce((acc, q) => {
-    acc += q.alpha * q.score;
-    return acc;
-  }, 0);
+  return {
+    title: cat.title, score: cat.resQuestions.reduce((acc, q) => {
+      acc += q.alpha * q.score;
+      return acc;
+    }, 0)
+  }
 }
 
 export function resetQuiz(quiz: Quiz) {
