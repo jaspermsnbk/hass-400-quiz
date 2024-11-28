@@ -1,4 +1,4 @@
-import { DEVMODE } from "./quiz.util";
+import { DEVMODE } from "./penv.util";
 
 export function log(...params: any){
     if(DEVMODE){

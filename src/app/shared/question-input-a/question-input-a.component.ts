@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
 import {MatRadioGroup, MatRadioModule} from '@angular/material/radio';
-import { DEVMODE } from '../util/quiz.util';
 import { log } from '../util/general.util';
+import { DEVMODE } from '../util/penv.util';
 
 @Component({
   selector: 'app-question-input-a',
@@ -23,13 +23,5 @@ export class QuestionInputAComponent implements OnInit{
 
   updateScore(newScore: number){
     this.scoreChange.emit(newScore)
-  }
-
-  pickRandVal(){
-    if(DEVMODE){
-      const tempIdx = Math.floor(Math.random() * 5)
-      return this.vals[tempIdx]
-    }
-    return 0
   }
 }

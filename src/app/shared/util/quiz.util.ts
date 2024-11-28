@@ -1,5 +1,4 @@
 import {
-  Category,
   Quiz,
   ResultCategory,
   ResultQuestion,
@@ -7,7 +6,6 @@ import {
   ResultVector,
 } from "../models/quiz.model";
 
-export const DEVMODE = true
 
 export function calculateQuiz(quiz: ResultQuiz) {
   return new ResultVector(quiz.resCategories.map(calculateCategory))
