@@ -2,6 +2,8 @@ import { DEVMODE } from "./quiz.util";
 
 export function log(...params: any){
     if(DEVMODE){
-        console.log(params)
+        params.forEach((element: any) => {
+            console.log(element)
+        });
     }
 }

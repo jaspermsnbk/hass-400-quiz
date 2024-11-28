@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { calculateQuiz, resetQuiz } from "../../shared/util/quiz.util";
+import { calculateQuiz, DEVMODE, resetQuiz } from "../../shared/util/quiz.util";
 import { hogwartsHouseQuiz } from "../../shared/quizes/hogwarts.quiz";
 import { Question, ResultQuiz } from "../../shared/models/quiz.model";
 import { QuestionComponent } from "../../shared/question/question.component";
 import {MatButtonModule} from '@angular/material/button';
+import { log } from "../../shared/util/general.util";
 
 @Component({
   selector: "app-quiz",
@@ -12,19 +13,18 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrl: "./quiz.component.scss",
 })
 export class QuizComponent implements OnInit {
+  DEVMODE=DEVMODE
   //maybe get quiz from a service??
   QUIZ = hogwartsHouseQuiz;
   resQuiz!: ResultQuiz;
   
   ngOnInit(): void {
     this.resQuiz = resetQuiz(this.QUIZ);
-
   }
 
   handleSubmit($event: MouseEvent){
-    console.log(this.resQuiz);
-    console.log(calculateQuiz(this.resQuiz));
-     
+    log(this.resQuiz)
+    log(calculateQuiz(this.resQuiz))
   }
   updateScore($score: number, cI: number, qI: number){
     this.resQuiz.resCategories[cI].resQuestions[qI].score = $score

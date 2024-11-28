@@ -6,7 +6,7 @@ import {
   ResultQuiz,
 } from "../models/quiz.model";
 
-export const DEVMODE = true
+export const DEVMODE = false
 
 export function calculateQuiz(quiz: ResultQuiz) {
   return quiz.resCategories.map(calculateCategory);

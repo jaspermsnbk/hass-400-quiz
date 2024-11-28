@@ -2,11 +2,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Question } from '../models/quiz.model';
 import {MatCardModule} from '@angular/material/card';
 import { QuestionInputAComponent } from "../question-input-a/question-input-a.component";
-import { QuestionInputBComponent } from "../question-input-b/question-input-b.component";
 
 @Component({
   selector: 'app-question',
-  imports: [MatCardModule, QuestionInputAComponent, QuestionInputBComponent],
+  imports: [MatCardModule, QuestionInputAComponent],
   templateUrl: './question.component.html',
   styleUrl: './question.component.scss'
 })
