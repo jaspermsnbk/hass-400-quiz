@@ -34,7 +34,10 @@ export class ResultCategory {
     this.score = 0;
     this.title = title;
     this.resQuestions = questions;
-    this.maxScore = this.resQuestions.reduce((acc, q) => acc + q.alpha * POSRANGEMAX, 0)
+    this.maxScore = this.resQuestions.reduce(
+      (acc, q) => acc + q.alpha * POSRANGEMAX,
+      0
+    );
   }
 }
 
@@ -51,12 +54,31 @@ export class ResultQuestion {
 export class CategoryResult {
   title!: string;
   score!: number;
+  maxScore!: number;
 }
 export class ResultVector {
-  details: { title: string; score: number }[];
+  details: CategoryResult[];
   basic: number[];
-  constructor(details?: CategoryResult []) {
+  constructor(details?: CategoryResult[]) {
     this.details = details || [];
     this.basic = this.details.map((cr) => cr.score);
+  }
+
+  basicDist(rhs: ResultVector) {
+    rhs.basic.reduce((acc, num, i) => acc + Math.abs(num - this.basic[i]), 0);
+  }
+
+  //this dist allows for difference in quiz version and out of order result vectors
+  detailedDist(rhs: ResultVector) {
+    rhs.details.reduce((acc, cr, i) => {
+      if (cr.title !== this.details[i].title) {
+        const temp = this.details.find((t) => t.title === cr.title);
+        if (!temp) {
+          throw new Error("incompatable vetors");
+        }
+        acc += Math.abs(temp.score / temp.maxScore - cr.score / cr.maxScore); //normailize each score and get diff
+      }
+      return acc;
+    }, 0);
   }
 }

@@ -23,7 +23,9 @@ export function calculateCategory(cat: ResultCategory) {
   log(red, redPMax, redDivMax, floorScore);
   
   return {
-    title: cat.title, score: floorScore
+    title: cat.title, 
+    score: floorScore,
+    maxScore: cat.maxScore
   }
 }
 
