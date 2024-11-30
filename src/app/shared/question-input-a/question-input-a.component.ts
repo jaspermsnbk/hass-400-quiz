@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
 import {MatRadioGroup, MatRadioModule} from '@angular/material/radio';
 import { log } from '../util/general.util';
-import { DEVMODE } from '../util/penv.util';
+import { DEVMODE, POSRANGEMAX } from '../util/penv.util';
 
 @Component({
   selector: 'app-question-input-a',
@@ -10,7 +10,7 @@ import { DEVMODE } from '../util/penv.util';
   styleUrl: './question-input-a.component.scss'
 })
 export class QuestionInputAComponent implements OnInit{
-  vals = [-2, -1, 0, 1, 2]
+  vals = [-POSRANGEMAX, -(POSRANGEMAX / 2), 0, POSRANGEMAX/2, POSRANGEMAX]
 
   @Input() leftText?: string = "disagree"
   @Input() rightText?: string = "agree"

@@ -5,6 +5,8 @@ import {
   ResultQuiz,
   ResultVector,
 } from "../models/quiz.model";
+import { log } from "./general.util";
+import { POSRANGEMAX } from "./penv.util";
 
 
 export function calculateQuiz(quiz: ResultQuiz) {
@@ -12,13 +14,16 @@ export function calculateQuiz(quiz: ResultQuiz) {
 }
 
 export function calculateCategory(cat: ResultCategory) {
-  const maxScore = cat.resQuestions.reduce((acc, q) => acc + q.alpha * 2, 0)
-  const minScore = maxScore * -1
+  log(cat.title, cat.maxScore)
+  const red = cat.resQuestions.reduce((acc, q) => acc + q.alpha * q.score, 0) 
+  const redPMax = red + cat.maxScore
+  const redDivMax = redPMax / (cat.maxScore * 2)
+  const floorScore = Math.floor(redDivMax * 100)
+
+  log(red, redPMax, redDivMax, floorScore);
+  
   return {
-    title: cat.title, score: cat.resQuestions.reduce((acc, q) => {
-      acc += q.alpha * q.score;
-      return acc;
-    }, 0)
+    title: cat.title, score: floorScore
   }
 }
 

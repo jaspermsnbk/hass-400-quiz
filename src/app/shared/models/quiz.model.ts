@@ -1,4 +1,4 @@
-import { resultQuizFromQuiz } from "../util/quiz.util";
+import { POSRANGEMAX } from "../util/penv.util";
 
 export class Quiz {
   title!: string;
@@ -29,10 +29,12 @@ export class ResultCategory {
   score = 0;
   title!: string;
   resQuestions!: ResultQuestion[];
+  maxScore!: number;
   constructor(title: string, questions: ResultQuestion[]) {
     this.score = 0;
     this.title = title;
     this.resQuestions = questions;
+    this.maxScore = this.resQuestions.reduce((acc, q) => acc + q.alpha * POSRANGEMAX, 0)
   }
 }
 
