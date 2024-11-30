@@ -33,7 +33,7 @@ export class QuizComponent implements OnInit {
     log(resultVec)
     console.log(this.dbService.resultVector());
     
-    this.dbService.resultVector.set(resultVec)
+    this.dbService.setResultVector(resultVec)
     this.router.navigate(['results'])
   }
   updateScore($score: number, cI: number, qI: number){

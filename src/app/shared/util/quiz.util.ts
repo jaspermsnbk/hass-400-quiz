@@ -12,6 +12,8 @@ export function calculateQuiz(quiz: ResultQuiz) {
 }
 
 export function calculateCategory(cat: ResultCategory) {
+  const maxScore = cat.resQuestions.reduce((acc, q) => acc + q.alpha * 2, 0)
+  const minScore = maxScore * -1
   return {
     title: cat.title, score: cat.resQuestions.reduce((acc, q) => {
       acc += q.alpha * q.score;

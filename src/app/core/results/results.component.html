@@ -1,7 +1,22 @@
-@if(resultsVecSig && resultsVecSig(); as res){
-    @for (det of res.details; track $index) {
-        <div>
-            {{det.title}}: {{det.score}}
-        </div>
-    }
-}
+<h2 class="text-center">Results</h2>
+
+<div style="margin-top: 20px;" class="flex-center-j">
+    <div style="width:80%">
+
+        @if(resultsVecSig && resultsVecSig(); as res){
+            @for (det of res.details; track $index) {
+                
+                <mat-card class="margin-1x">
+                    <mat-card-header>
+                        {{det.title}}: {{det.score + 5}}
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-progress-bar mode="determinate" [value]="(det.score + 5) * 10"></mat-progress-bar>
+                    </mat-card-content>
+                </mat-card>
+            }
+        }
+        
+    </div>
+</div>
+
