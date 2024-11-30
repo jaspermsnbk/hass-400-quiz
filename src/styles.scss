@@ -117,3 +117,25 @@ body {
 .text-center {
     text-align: center;
 }
+
+@media (max-width: 650px){
+    .comfortable {
+        width: 95%;
+    }
+}
+@media (min-width: 650px){
+    .comfortable {
+        width: 80%;
+    }
+}
+@media (min-width: 800px){
+    .comfortable {
+        width: 65%;
+    }
+}
+
+@media (min-width: 1200px){
+    .comfortable {
+        width: 50%;
+    }
+}

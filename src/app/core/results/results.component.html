@@ -1,7 +1,7 @@
 <h2 class="text-center">Results</h2>
 
 <div style="margin-top: 20px;" class="flex-center-j">
-    <div style="width:80%">
+    <div class="comfortable">
 
         @if(resultsVecSig && resultsVecSig(); as res){
             @for (det of res.details; track $index) {
@@ -21,5 +21,12 @@
     </div>
 </div>
 
-<h2 class="text-center"> Your Score is Closest to:</h2>
+@if(closestLeader){
 
+<h2 class="text-center"> Your Score is Closest to:</h2>
+    <div class="comfortable">
+        <div class="flex">
+                   
+        </div>
+    </div>
+}

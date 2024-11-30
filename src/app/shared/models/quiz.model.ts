@@ -76,7 +76,7 @@ export class ResultVector {
         if (!temp) {
           throw new Error("incompatable vetors");
         }
-        acc += Math.abs(temp.score / temp.maxScore - cr.score / cr.maxScore); //normailize each score and get diff
+        acc += Math.abs(temp.score / (2 * temp.maxScore) - cr.score / (2 * cr.maxScore)); //normailize each score and get diff
       }
       return acc;
     }, 0);

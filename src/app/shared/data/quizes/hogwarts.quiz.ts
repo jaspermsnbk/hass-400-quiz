@@ -1,4 +1,4 @@
-import { Quiz } from "../models/quiz.model";
+import { Quiz } from "../../models/quiz.model";
 
 export const hogwartsHouseQuiz: Quiz = {
   title:"Hogwarts House Quiz",

@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { calculateQuiz, resultQuizFromQuiz } from "../../shared/util/quiz.util";
-import { hogwartsHouseQuiz } from "../../shared/quizes/hogwarts.quiz";
 import { Question, ResultQuiz } from "../../shared/models/quiz.model";
 import { QuestionComponent } from "../../shared/question/question.component";
 import {MatButtonModule} from '@angular/material/button';
@@ -8,6 +7,7 @@ import { log } from "../../shared/util/general.util";
 import { Router, ActivatedRoute, RouterModule } from "@angular/router";
 import { DbService } from "../../shared/services/db.service";
 import { DEVMODE } from "../../shared/util/penv.util";
+import { hogwartsHouseQuiz } from "../../shared/data/quizes/hogwarts.quiz";
 
 @Component({
   selector: "app-quiz",
