@@ -63,22 +63,4 @@ export class ResultVector {
     this.details = details || [];
     this.basic = this.details.map((cr) => cr.score);
   }
-
-  basicDist(rhs: ResultVector) {
-    rhs.basic.reduce((acc, num, i) => acc + Math.abs(num - this.basic[i]), 0);
-  }
-
-  //this dist allows for difference in quiz version and out of order result vectors
-  detailedDist(rhs: ResultVector) {
-    rhs.details.reduce((acc, cr, i) => {
-      if (cr.title !== this.details[i].title) {
-        const temp = this.details.find((t) => t.title === cr.title);
-        if (!temp) {
-          throw new Error("incompatable vetors");
-        }
-        acc += Math.abs(temp.score / (2 * temp.maxScore) - cr.score / (2 * cr.maxScore)); //normailize each score and get diff
-      }
-      return acc;
-    }, 0);
-  }
 }

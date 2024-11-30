@@ -1,3 +1,3 @@
-export const DEVMODE = false
+export const DEVMODE = true
 
 export const POSRANGEMAX = 2;

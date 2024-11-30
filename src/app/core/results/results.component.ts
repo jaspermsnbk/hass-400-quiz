@@ -5,6 +5,8 @@ import { ResultVector } from '../../shared/models/quiz.model';
 import { MatCardModule } from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { Leader } from '../../shared/models/leader.model';
+import { leaders } from '../../shared/data/leaders/leader.data';
+import { detailedDist } from '../../shared/util/vector.util';
 
 @Component({
   selector: 'app-results',
@@ -22,6 +24,12 @@ export class ResultsComponent implements OnInit {
   ngOnInit(): void {
       log("results page", this.dbService.resultVector())
       this.resultsVecSig = this.dbService.resultVector
+      if(this.resultsVecSig !== undefined && this.resultsVecSig() !== undefined){
+        // log( this.resultsVecSig())
+        leaders.forEach((l) => {
+          log("dist: ", detailedDist(this.dbService.resultVector(), l.resVect))
+        })
+      }
   }
 
 
