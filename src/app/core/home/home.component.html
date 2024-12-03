@@ -29,4 +29,10 @@
     <div class="paper margin-sides-1x">
         <app-research-process />
     </div>
+    @if (dbService.leaders(); as leaders) {
+        <h2> Meet the Leaders </h2>
+        @for (leader of leaders; track $index) {
+            <app-leader [leader]="leader"/>
+        }
+    }
 </div>

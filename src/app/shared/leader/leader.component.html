@@ -1,0 +1,29 @@
+<div class="flex flex-center-j">
+    <div class="comfortable flex flow-col">
+        <h3> 
+          {{ leader.name }}
+        </h3>
+        @if(dist){
+            <h4>Your Distance: {{round(dist)}}</h4>
+        }
+        <div class="flex flow-col">
+            <div style="margin: 20px;">
+                <img [src]="leader.picture" width="250px"/>
+            </div>
+            <p>
+              {{ leader.blurb }}
+            </p>
+            <p>
+              @for (line of leader.characteristics; track $index) {
+                <div style="margin-top: 10px; margin-bottom: 10px;">
+                  {{line}}
+                </div>
+              }
+              <!-- {{leader.characteristics}} -->
+            </p>
+        </div>
+        <div>
+         {{leader.sources}}
+        </div>
+      </div>
+</div>
