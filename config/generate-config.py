@@ -1,7 +1,7 @@
 import json
 QUIZ_TITLE="Extremist Leader Commonality Quiz"
 CONFIG = "config/leader-config.txt"
-OUT_QUIZ = f"src/assets/{QUIZ_TITLE.replace(' ', '-')}.json"
+OUT_QUIZ = f"public/assets/{QUIZ_TITLE.replace(' ', '-')}.json"
 OUT_LEADERS = ""
 def main():
     lines = []
