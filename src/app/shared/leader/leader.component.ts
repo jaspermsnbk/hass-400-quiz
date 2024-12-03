@@ -10,5 +10,5 @@ import { Leader } from "../models/leader.model";
 export class LeaderComponent {
   @Input() leader!: Leader;
   @Input() dist?: number;
-  round = (number: number) => Math.round(number);
+  round = (number: number) => (Math.round(number * 100) / 100);
 }
