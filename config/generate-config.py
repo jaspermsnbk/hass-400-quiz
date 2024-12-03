@@ -3,7 +3,7 @@ import json
 QUIZ_TITLE = "Extremist and Cult Leader Commonality Quiz"
 CONFIG = "config/leader-config.txt"
 OUT_QUIZ = f"public/assets/{QUIZ_TITLE.replace(' ', '-')}.json"
-OUT_LEADERS = ""
+OUT_LEADERS = "public/assets/leaders.json"
 
 
 def main():
@@ -13,10 +13,13 @@ def main():
     # print(lines)
     leaderMap = {}
     leaders = []
+    leadersObj = {}
     RawleaderScores = {}
     leaderScores = {}
     categories = []
+    yncategories = []
     rawQuiz = {}
+    rawQuizYN = {}
     context = ""
     leaderContext = ""
     for i, l in enumerate(lines):
@@ -49,22 +52,43 @@ def main():
                         leaders.append(name)
                         leaderMap[abr] = name
                         RawleaderScores[name] = set()
+                        leadersObj[name] = {
+                            "blurb": [],
+                            "picture": "",
+                            "sources": [],
+                        }
                     elif l.startswith("blurb:"):
                         leaderContext = "blurb"
                     elif l.startswith("picture href:"):
-                        leaderContext = "picture href:"                        
+                        leaderContext = "picture href:"
                     elif l.startswith("sources:"):
                         leaderContext = "sources:"
                     else:
-                        match(leaderContext):
+                        leader = leaders[len(leaders) - 1]
+                        match (leaderContext):
                             case "blurb":
-                                pass
+                                leadersObj[leader]["blurb"].append(l)
                             case "picture href:":
-                                pass
+                                leadersObj[leader]["picture"] = l
                             case "sources:":
-                                pass
+                                leadersObj[leader]["sources"].append(l)
                 case "yn categories":
-                    pass
+                    if l.startswith("-"):
+                        cat = yncategories[len(yncategories) - 1]
+                        if cat in rawQuizYN:
+                            rawQuizYN[cat].append(l[1:].strip())
+                        else:
+                            rawQuizYN[cat] = [l[1:].strip()]
+                    elif l.startswith("%"):
+                        cat = yncategories[len(yncategories) - 1]
+                        for abr in l[1:].strip().split(" "):
+                            abr = abr.strip()
+                            if abr in leaderMap:
+                                RawleaderScores[leaderMap[abr]].add(cat)
+                            else:
+                                print(f"Unrecognized Abrev {abr}, skipping...")
+                    else:
+                        yncategories.append(l)
                 case "categories":
                     if l.startswith("-"):
                         cat = categories[len(categories) - 1]
@@ -74,12 +98,9 @@ def main():
                             rawQuiz[cat] = [l[1:].strip()]
                     elif l.startswith("%"):
                         cat = categories[len(categories) - 1]
-                        # print(l)
                         for abr in l[1:].strip().split(" "):
                             abr = abr.strip()
                             if abr in leaderMap:
-                                # print(abr)
-                                # print(leaderMap[abr])
                                 RawleaderScores[leaderMap[abr]].add(cat)
                             else:
                                 print(f"Unrecognized Abrev {abr}, skipping...")
@@ -94,13 +115,22 @@ def main():
 
         for cat in categories:
             score = 1 if cat in rs else 0
-            temp.append({
-                "title":cat,
-                "score":score,
-                "maxScore":1
-            })
+            temp.append({"title": cat, "score": score, "maxScore": 1})
 
         leaderScores[k] = temp
+
+    leaderOutArr = []
+    for l in leaderScores.keys():
+        temp = leadersObj[l]
+        # print(l)
+        temp["name"] = l
+        # temp["blurb"] = "\n".join(temp["blurb"])
+        # temp["blurb"] = ""
+        temp["resVect"] = leaderScores[l]
+        leaderOutArr.append(temp)
+
+    # print(leaderOutArr)
+    ynqcount = 0
 
     quiz = {"title": QUIZ_TITLE, "categories": []}
     qcount = 0
@@ -110,17 +140,35 @@ def main():
             tq = {
                 "title": q,
                 "alpha": 1,
+                "type":"reg"
             }
             qcount += 1
             tc["questions"].append(tq)
 
         quiz["categories"].append(tc)
-    print("total questions: ", qcount)
+    
+    for yncat in rawQuizYN.keys():
+        tc = {"title": yncat, "questions": []}
+        for q in rawQuizYN[yncat]:
+            tq = {
+                "title": q,
+                "alpha": 1,
+                "type": "tf"
+            }
+            ynqcount += 1
+            tc["questions"].append(tq)
+
+        quiz["categories"].append(tc)
+
+    print("total leaders: ", len(leaders))
+    print("total categories: ", len(categories))
+    print("total yn questions: ", ynqcount)
+    print("total reg questions: ", qcount)
     # print(leaderScores)
     # print(rawQuiz)
     # print(quiz)
-
-    print(leaders)
+    # print(leadersObj)
+    # print(leaders)
     # print(categories)
     # for cat in categories:
     #     print(cat, quiz[cat])
@@ -129,6 +177,9 @@ def main():
     # print(leaders)
     with open(OUT_QUIZ, "w") as out_quiz:
         json.dump(quiz, out_quiz)
+
+    with open(OUT_LEADERS, "w") as out_leaders:
+        json.dump(leaderOutArr, out_leaders)
 
 
 main()

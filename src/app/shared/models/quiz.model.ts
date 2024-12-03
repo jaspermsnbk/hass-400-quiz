@@ -14,8 +14,13 @@ export class Question {
   alpha = 1; //value multiplied by the result to change the weight or orientation of the question
   title!: string;
   description?: string;
+  type?: QuestionType
 }
 
+export enum QuestionType {
+  REG = "reg",
+  TF = "tf",
+}
 export class ResultQuiz {
   title!: string;
   resCategories!: ResultCategory[];
