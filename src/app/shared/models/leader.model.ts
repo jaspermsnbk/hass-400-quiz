@@ -5,5 +5,9 @@ export class Leader {
     blurb!: string
     picture!: string
     sources!: string []
-    resVect!: ResultVector
+}
+
+export class LeaderScore {
+    name!: string
+    scores!: ResultVector
 }
