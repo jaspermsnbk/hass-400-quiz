@@ -35,6 +35,14 @@
         <p>
           {{ leader.blurb }}
         </p>
+        <p>
+          @for (line of leader.characteristics; track $index) {
+            <div style="margin-top: 10px; margin-bottom: 10px;">
+              {{line}}
+            </div>
+          }
+          <!-- {{leader.characteristics}} -->
+        </p>
     </div>
     <div>
         sources: {{leader.sources}}
