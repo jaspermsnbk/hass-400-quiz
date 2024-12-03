@@ -74,10 +74,11 @@ export class QuizComponent implements OnInit {
   }
 
   handleSubmit($event: MouseEvent) {
-    console.log(this.resQuiz());
-
+    
     if (!this.resQuiz || !this.resQuiz()) return;
+    log(this.resQuiz())
     const resultVec = calculateQuiz(this.resQuiz() as ResultQuiz);
+    console.log(this.resQuiz());
     log(this.resQuiz);
     log(resultVec);
     console.log(this.dbService.resultVector());
@@ -85,8 +86,11 @@ export class QuizComponent implements OnInit {
     this.dbService.setResultVector(resultVec);
     this.router.navigate(["results"]);
   }
+
   updateScore($score: number, cI: number, qI: number) {
     const temp = {...this.resQuiz()}
+    console.log($score, cI, qI);
+    
     temp.resCategories[cI].resQuestions[qI].score = $score
     this.resQuiz.set(temp)
   }

@@ -10,7 +10,7 @@ import { POSRANGEMAX } from "./penv.util";
 
 
 export function calculateQuiz(quiz: ResultQuiz) {
-  return new ResultVector(quiz.resCategories.map(calculateCategory))
+  return new ResultVector(quiz.resCategories.map(betterCalculateCategory))
 }
 
 export function calculateCategory(cat: ResultCategory) {
@@ -25,6 +25,18 @@ export function calculateCategory(cat: ResultCategory) {
   return {
     title: cat.title, 
     score: floorScore,
+    maxScore: cat.maxScore
+  }
+}
+
+export function betterCalculateCategory(cat: ResultCategory){
+  console.log(cat.title, cat.maxScore)
+  const red = cat.resQuestions.reduce((acc, q) => acc + q.alpha * q.score, 0) 
+  const redDivMax = red / (cat.maxScore)
+
+  return {
+    title: cat.title, 
+    score: redDivMax,
     maxScore: cat.maxScore
   }
 }

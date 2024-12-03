@@ -13,12 +13,12 @@
         </div>
     </div>
     <div>
-        <mat-radio-group class="row-2" (change)="updateScore($event.value)" [value]="0" #radio>
-            <mat-radio-button [value]="-2" />
-            <mat-radio-button [value]="-1" />
-            <mat-radio-button [value]="0" />
-            <mat-radio-button [value]="1" />
-            <mat-radio-button [value]="2" />
+        <mat-radio-group class="row-2" (change)="updateScore($event.value)" #radio>
+            <mat-radio-button [value]="vals[0]" />
+            <mat-radio-button [value]="vals[1]" />
+            <mat-radio-button [value]="vals[2]" />
+            <mat-radio-button [value]="vals[3]" />
+            <mat-radio-button [value]="vals[4]" />
         </mat-radio-group>
     </div>
 </div>

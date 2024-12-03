@@ -117,6 +117,10 @@ def main():
             score = 1 if cat in rs else 0
             temp.append({"title": cat, "score": score, "maxScore": 1})
 
+        for cat in yncategories:
+            score = 1 if cat in rs else 0
+            temp.append({"title": cat, "score": score, "maxScore": 1})
+        
         leaderScores[k] = temp
 
     leaderOutArr = []

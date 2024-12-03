@@ -2,22 +2,22 @@
     <div class="row-1">
         <div></div>
         <div>
-            True
+            False
         </div>
         <div>
             NA
         </div>
         <div>
-            False
+            True
         </div>
         <div></div>
     </div>
     <div>
-        <mat-radio-group class="row-2" (change)="updateScore($event.value)" [value]="0" #radio>
+        <mat-radio-group class="row-2" (change)="updateScore($event.value)" #radio>
             <div></div>
-            <mat-radio-button [value]="2" />
-            <mat-radio-button [value]="0" />
-            <mat-radio-button [value]="-2" />
+            <mat-radio-button [value]="vals[0]" />
+            <mat-radio-button [value]="vals[1]" />
+            <mat-radio-button [value]="vals[2]" />
         </mat-radio-group>
     </div>
 </div>

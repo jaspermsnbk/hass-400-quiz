@@ -3,16 +3,16 @@
 <div style="margin-top: 20px;">
     <div class="result-categories flex-center-j">
 
-        @if(resultsVecSig && resultsVecSig(); as res){
+        @if(visualResultsVecSig && visualResultsVecSig(); as res){
             @for (det of res.details; track $index) {
                 
-                <mat-card class="margin-1x" style="max-width: 600px; min-width: 300px;">
+                <mat-card class="margin-1x" style="max-width: 600px; min-width: 320px;">
                     <mat-card-header>
-                        <!-- apply proper scaling -->
-                        {{det.title}}: {{(det.score - 50) * 2}}%
+                        {{det.title}}: {{det.score}}%
                     </mat-card-header> 
                     <mat-card-content> 
-                        <mat-progress-bar mode="determinate" [value]="det.score"></mat-progress-bar>
+                        <!-- apply proper scaling -->
+                        <mat-progress-bar mode="determinate" [value]="50 + (det.score / 100) * 50"></mat-progress-bar>
                     </mat-card-content>
                 </mat-card>
             }

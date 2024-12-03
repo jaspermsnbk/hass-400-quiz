@@ -1,6 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { MatRadioGroup, MatRadioModule } from '@angular/material/radio';
 import { log } from '../util/general.util';
+import { POSRANGEMAX } from '../util/penv.util';
 
 @Component({
   selector: 'app-question-input-tf',
@@ -9,7 +10,7 @@ import { log } from '../util/general.util';
   styleUrl: './question-input-tf.component.scss'
 })
 export class QuestionInputTfComponent {
-  vals = [0, 1]
+  vals = [-POSRANGEMAX, 0, POSRANGEMAX]
 
   @Input() leftText?: string = "disagree"
   @Input() rightText?: string = "agree"
