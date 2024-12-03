@@ -40,34 +40,14 @@ export class QuizComponent implements OnInit {
   constructor(
     private router: Router,
     private dbService: DbService,
-    private http: HttpClient
   ) {}
 
-  loadQuizFromJson(path: string) {
-    this.http.get(path).subscribe((res) => {
-      console.log(res as Quiz);
-      this.quizSig.set(res as Quiz);
-      this.resQuiz.set(resultQuizFromQuiz(this.quizSig()))
-    });
-  }
-
-  loadLeadersFromJson(path: string){
-    this.http.get(path).subscribe((res) => {
-      console.log(res as Leader []);
-      this.dbService.leaders.set((res as Leader []).map((l) => {
-        const tempL = l
-        tempL.resVect = new ResultVector(tempL.resVect.details)
-        return tempL
-      }))
-      console.log(this.dbService.leaders());
-
-    });
-  }
+  
 
   ngOnInit(): void {
-    this.loadQuizFromJson("./assets/Extremist-and-Cult-Leader-Commonality-Quiz.json");
-    this.loadLeadersFromJson("./assets/leaders.json");
+    
     this.quizSig = this.dbService.quiz;
+    this.resQuiz = this.dbService.resQuiz;
     console.log(this.resQuiz());
 
     // this.resQuiz = resultQuizFromQuiz(this.QUIZ);

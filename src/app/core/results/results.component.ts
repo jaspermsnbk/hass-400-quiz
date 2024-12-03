@@ -4,13 +4,12 @@ import { log } from '../../shared/util/general.util';
 import { ResultVector } from '../../shared/models/quiz.model';
 import { MatCardModule } from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import { detailedDist, getMinDistLeader } from '../../shared/util/vector.util';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { getMinDistLeader } from '../../shared/util/vector.util';
 import { Leader } from '../../shared/models/leader.model';
 
 @Component({
   selector: 'app-results',
-  imports: [MatCardModule, MatProgressBarModule, HttpClientModule],
+  imports: [MatCardModule, MatProgressBarModule],
   templateUrl: './results.component.html',
   styleUrl: './results.component.scss'
 })
@@ -20,7 +19,7 @@ export class ResultsComponent implements OnInit {
   visualResultsVecSig?: Signal<ResultVector>
   closestLeader?: Leader
   dist = 0
-  constructor(private dbService:DbService, private http: HttpClient) {}
+  constructor(private dbService:DbService) {}
   
   ngOnInit(): void {
     log("results page", this.dbService.resultVector())
