@@ -20,13 +20,18 @@ export class DbService {
   quiz = signal<Quiz>(hogwartsHouseQuiz)
   leaders = signal<Leader []>([])
   resQuiz = signal<ResultQuiz>(resultQuizFromQuiz(this.quiz()))
-
+  closestLeader = signal<Leader | null>(null)
   constructor(private http: HttpClient) { 
     console.log("here");
     
     const tempRes = localStorage.getItem("resultVector");
     if(tempRes){
       this.resultVector.set(JSON.parse(tempRes) as ResultVector)
+    }
+
+    const tempClosestLeader = localStorage.getItem("closestLeader");
+    if(tempClosestLeader){
+      this.closestLeader.set(JSON.parse(tempClosestLeader) as Leader)
     }
 
     this.loadQuizFromJson("./assets/Extremist-and-Cult-Leader-Commonality-Quiz.json");
@@ -36,6 +41,11 @@ export class DbService {
   setResultVector(resVec: ResultVector){
     localStorage.setItem("resultVector", JSON.stringify(resVec))
     this.resultVector.set(resVec)
+  }
+
+  setClosestLeader(leader: Leader) {
+    localStorage.setItem("closestLeader", JSON.stringify(leader))
+    this.closestLeader.set(leader)
   }
 
   loadQuizFromJson(path: string) {

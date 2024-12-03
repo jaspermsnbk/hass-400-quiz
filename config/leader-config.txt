@@ -149,6 +149,7 @@ leaders
         Polarizing and Controversial: To his followers, he was a prophet and leader; to his critics, he was seen as a fraud and a threat to societal norms.
 
     picture href: 
+    https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Joseph_Smith%2C_Jr._portrait_owned_by_Joseph_Smith_III.jpg/640px-Joseph_Smith%2C_Jr._portrait_owned_by_Joseph_Smith_III.jpg
     sources:
 end
 

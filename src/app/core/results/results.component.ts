@@ -17,7 +17,7 @@ export class ResultsComponent implements OnInit {
 
   resultsVecSig?: Signal<ResultVector>
   visualResultsVecSig?: Signal<ResultVector>
-  closestLeader?: Leader
+  closestLeader?: Signal<Leader | null>
   dist = 0
   constructor(private dbService:DbService) {}
   
@@ -25,6 +25,9 @@ export class ResultsComponent implements OnInit {
     log("results page", this.dbService.resultVector())
     this.resultsVecSig = this.dbService.resultVector
     this.visualResultsVecSig = this.dbService.visualResultVector
+    this.closestLeader = this.dbService.closestLeader
+
+
     if(this.resultsVecSig !== undefined && this.resultsVecSig() !== undefined && this.dbService.leaders && this.dbService.leaders()){
       console.log(this.dbService.leaders());
       console.log(this.resultsVecSig()) 
@@ -33,7 +36,7 @@ export class ResultsComponent implements OnInit {
         console.log("error occured in finding closest leader");
         return
       }
-      this.closestLeader = res.leader
+      this.dbService.setClosestLeader(res.leader)
       this.dist = res.dist
       console.log(this.closestLeader);
       console.log(this.dist);
