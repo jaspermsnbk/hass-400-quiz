@@ -47,7 +47,7 @@ leaders
     picture href: 
     https://cdn.britannica.com/62/95662-050-DA4215DE/Joseph-Stalin.jpg?w=300
     sources:
-- KS - Kim il-Sung
+- KS - Kim il Sung
     blurb:
     Kim Il-sung (1912–1994) was the founder and first Supreme Leader of North Korea, serving from its establishment in 1948 until his death. He implemented a strict, authoritarian regime based on the ideology of Juche (self-reliance) and oversaw the Korean War (1950–1953), which ended in an armistice but no formal peace treaty. His rule was characterized by isolationism, propaganda, and a cult of personality that persists in North Korea today.
     Characteristics
@@ -76,6 +76,7 @@ leaders
         Ruthless and Opportunistic: Putin is willing to use force, disinformation, and repression to maintain power and achieve geopolitical goals.
 
     picture href: 
+    https://s.abcnews.com/images/International/gy_putin_dc_011718_2x3_992.jpg
     sources:
 - G - George Gordon
     blurb:
@@ -89,6 +90,7 @@ leaders
         Charismatic Organizer: His legal and military background helped him organize and articulate the Klan’s mission, lending the group an aura of authority and cohesion in its early years.
         Unapologetically Violent: Gordon rationalized the Klan's use of terror as a necessary means of preserving Southern "honor" and "civilization."
     picture href: 
+    https://upload.wikimedia.org/wikipedia/commons/8/87/George_Washington_Gordon.jpg
     sources:
 - L - L Ron Hubbard
     blurb:
@@ -104,6 +106,7 @@ leaders
         Visionary but Controversial: His creation of Scientology was both innovative in its blending of science fiction and spiritual ideas and divisive due to its secretive and litigious nature.
 
     picture href: 
+    https://files.scientology.org/imagecache/cropfit@w=560/data/www.scientology.org/files/profile-LRH_en.jpg?k=nH2hdOrw4v
     sources:
 - KR - Keith Raniere
     blurb:
@@ -119,6 +122,7 @@ leaders
         Ruthless and Calculating: He used blackmail, intimidation, and emotional manipulation to control followers and eliminate dissent.
 
     picture href: 
+    https://static01.nyt.com/images/2020/10/27/nyregion/27raniere-metro/27raniere-metro-superJumbo.jpg
     sources:
 - CM - Charles Manson
     blurb:
@@ -132,7 +136,8 @@ leaders
         Paranoid and Delusional: His belief in Helter Skelter and other apocalyptic fantasies drove his actions and justified violence in his mind.
         Ruthless and Manipulative: He exerted control through psychological manipulation, exploiting his followers’ vulnerabilities and isolating them from outside influences.
         Obsessive and Egomaniacal: Manson viewed himself as a messianic figure destined to shape history, and he demanded absolute loyalty.
-    picture href: 
+    picture href:
+    https://static01.nyt.com/images/2019/07/28/arts/28manson-hollywood/28manson-hollywood-superJumbo.jpg 
     sources:
 - JS - Joseph Smith
     blurb:
