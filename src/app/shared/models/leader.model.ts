@@ -6,6 +6,7 @@ export class Leader {
     picture!: string
     sources!: string []
     resVect!: ResultVector 
+    characteristics?: string | string []
 }
 
 export class LeaderScore {

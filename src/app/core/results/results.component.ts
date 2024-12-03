@@ -38,7 +38,7 @@ export class ResultsComponent implements OnInit {
       }
       this.dbService.setClosestLeader(res.leader)
       this.dist = res.dist
-      console.log(this.closestLeader);
+      console.log(this.closestLeader());
       console.log(this.dist);
     }
   }

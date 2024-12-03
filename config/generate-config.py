@@ -56,9 +56,12 @@ def main():
                             "blurb": [],
                             "picture": "",
                             "sources": [],
+                            "characteristics": []
                         }
                     elif l.startswith("blurb:"):
                         leaderContext = "blurb"
+                    elif l.startswith("Characteristics"):
+                        leaderContext = "characteristics"
                     elif l.startswith("picture href:"):
                         leaderContext = "picture href:"
                     elif l.startswith("sources:"):
@@ -72,6 +75,8 @@ def main():
                                 leadersObj[leader]["picture"] = l
                             case "sources:":
                                 leadersObj[leader]["sources"].append(l)
+                            case "characteristics":
+                                leadersObj[leader]["characteristics"].append(l)
                 case "yn categories":
                     if l.startswith("-"):
                         cat = yncategories[len(yncategories) - 1]
