@@ -1,5 +1,5 @@
 import json
-QUIZ_TITLE="Extremist Leader Commonality Quiz"
+QUIZ_TITLE="Extremist and Cult Leader Commonality Quiz"
 CONFIG = "config/leader-config.txt"
 OUT_QUIZ = f"public/assets/{QUIZ_TITLE.replace(' ', '-')}.json"
 OUT_LEADERS = ""
@@ -29,6 +29,9 @@ def main():
         elif(l.startswith("categories")):
             context = "categories"
             continue
+        elif(l.startswith("yn categories")):
+            context = "categories"
+            continue
         else:
             # print(i, context)
             match(context):
@@ -41,6 +44,8 @@ def main():
                     leaders.append(name)
                     leaderMap[abr] = name
                     RawleaderScores[name] = set()
+                case "yn categories":
+                    pass
                 case "categories":
                     if(l.startswith("-")):
                         cat = categories[len(categories) - 1]

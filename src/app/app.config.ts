@@ -7,9 +7,7 @@ import { provideRouter, withComponentInputBinding, withViewTransitions } from "@
 
 import { routes } from "./app.routes";
 import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
-import { MaterialModule } from "./shared/material.module";
 
-const moduleImports = [MaterialModule];
 
 export const appConfig: ApplicationConfig = {
   providers: [

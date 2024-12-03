@@ -12,7 +12,9 @@ export function detailedDist(lhs: ResultVector, rhs: ResultVector) {
     if (cr.title !== lhsDetail.title) {
       const temp = lhs.details.find((t) => t.title === cr.title);
       if (!temp) {
-        throw new Error("incompatable vetors");
+        console.log();
+        
+        throw new Error("incompatable vectors");
       }
       acc += normDist(temp.score, temp.maxScore, cr.score, cr.maxScore);
     }

@@ -1,8 +1,8 @@
-import { Component, OnInit, signal, Signal } from "@angular/core";
+import { Component, computed, OnInit, signal, Signal } from "@angular/core";
 import { calculateQuiz, resultQuizFromQuiz } from "../../shared/util/quiz.util";
 import { Question, Quiz, ResultQuiz } from "../../shared/models/quiz.model";
 import { QuestionComponent } from "../../shared/question/question.component";
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from "@angular/material/button";
 import { log } from "../../shared/util/general.util";
 import { Router, ActivatedRoute, RouterModule } from "@angular/router";
 import { DbService } from "../../shared/services/db.service";
@@ -17,36 +17,54 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
   styleUrl: "./quiz.component.scss",
 })
 export class QuizComponent implements OnInit {
-  DEVMODE=DEVMODE
+  DEVMODE = DEVMODE;
   //maybe get quiz from a service??
   QUIZ = hogwartsHouseQuiz;
   quizSig = signal<Quiz>(hogwartsHouseQuiz);
-  resQuiz!: ResultQuiz;
-  
-  constructor(private router: Router, private dbService: DbService, private http: HttpClient) {}
+  resQuiz = signal<ResultQuiz>(resultQuizFromQuiz(hogwartsHouseQuiz));
+  // resQuizComputed = computed(() => {
+  //   const resQuizTemp = resultQuizFromQuiz(this.quizSig());
+  //   this.resQuiz.set(resQuizTemp)
+  //   return resQuizTemp
+  // });
 
-  loadQuizFromJson(path: string){
+  constructor(
+    private router: Router,
+    private dbService: DbService,
+    private http: HttpClient
+  ) {}
+
+  loadQuizFromJson(path: string) {
     this.http.get(path).subscribe((res) => {
       console.log(res as Quiz);
-      this.quizSig.set(res as Quiz)
-    })
-  }
-  ngOnInit(): void {
-    this.loadQuizFromJson("./assets/Extremist-Leader-Commonality-Quiz.json")
-    this.resQuiz = resultQuizFromQuiz(this.QUIZ);
-    this.quizSig = this.dbService.quiz
+      this.quizSig.set(res as Quiz);
+      this.resQuiz.set(resultQuizFromQuiz(this.quizSig()))
+    });
   }
 
-  handleSubmit($event: MouseEvent){
-    const resultVec = calculateQuiz(this.resQuiz)
-    log(this.resQuiz)
-    log(resultVec)
-    console.log(this.dbService.resultVector());
-    
-    this.dbService.setResultVector(resultVec)
-    this.router.navigate(['results'])
+  ngOnInit(): void {
+    this.loadQuizFromJson("./assets/Extremist-Leader-Commonality-Quiz.json");
+    this.quizSig = this.dbService.quiz;
+    console.log(this.resQuiz());
+
+    // this.resQuiz = resultQuizFromQuiz(this.QUIZ);
   }
-  updateScore($score: number, cI: number, qI: number){
-    this.resQuiz.resCategories[cI].resQuestions[qI].score = $score
+
+  handleSubmit($event: MouseEvent) {
+    console.log(this.resQuiz());
+
+    if (!this.resQuiz || !this.resQuiz()) return;
+    const resultVec = calculateQuiz(this.resQuiz() as ResultQuiz);
+    log(this.resQuiz);
+    log(resultVec);
+    console.log(this.dbService.resultVector());
+
+    this.dbService.setResultVector(resultVec);
+    this.router.navigate(["results"]);
+  }
+  updateScore($score: number, cI: number, qI: number) {
+    const temp = {...this.resQuiz()}
+    temp.resCategories[cI].resQuestions[qI].score = $score
+    this.resQuiz.set(temp)
   }
 }

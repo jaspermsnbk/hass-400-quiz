@@ -26,9 +26,9 @@ export class ResultsComponent implements OnInit {
       this.resultsVecSig = this.dbService.resultVector
       if(this.resultsVecSig !== undefined && this.resultsVecSig() !== undefined){
         // log( this.resultsVecSig())
-        leaders.forEach((l) => {
-          log("dist: ", detailedDist(this.dbService.resultVector(), l.resVect))
-        })
+        // leaders.forEach((l) => {
+        //   log("dist: ", detailedDist(this.dbService.resultVector(), l.resVect))
+        // })
       }
   }
 

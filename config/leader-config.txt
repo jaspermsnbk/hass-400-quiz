@@ -1,9 +1,18 @@
 # basic config file by jasper mesenbrink
-# 
-#
-#
-#
-#
+#       current section options: 
+#       leaders, yn categories, categories
+#       '#' comments out a line 
+#   structure: 
+#       <leaders>
+#       [content]
+#       end
+#       <yn categories>
+#       [content]
+#       end
+#       <categories>
+#       [content]
+#       end
+#       
 
 leaders
 A - Adolf Hitler 
@@ -17,151 +26,183 @@ CM - Charles Manson
 JS - Joseph Smith
 end
 
-categories and questions
+yn categories and questions
 
 early death of parents
-- did one or both of your parents die before the age of 16?
+#- did one or both of your parents die before the age of 16?
+- one or both of my parents died before the age of 16
 % A
+
 poor upbringing
-- did you have a less than fortunate childhood?
-% V KS JN
+#- did you have a less than fortunate childhood?
+- I did not have a lot growing up
+% JN V JS CM
+
 Abused as a child
-- did you experience any abuse as a child?
-- have you experienced any abuse throughout adulthood
+#- did you experience any abuse as a child?
+#- have you experienced any abuse throughout adulthood
+- in my childhood I experienced abuse from others
+#- in my adult life I have experienced abuse from others
+% JN
 
 long held hate / grudges
-- do you hold grudges easily?
-- have you ever had long held hatred for a group of people?
+- I tend to hold grudges
+- I if I don't like something, my opinion is unwilling to change
+#- have you ever had long held hatred for a group of people?
+% JN A KS
 
 served in military
 - have you or are you serving in the military?
 - do you plan on serving in the military?
+% KS A G V L
+end
+
+categories and questions
 
 rebellious childhood
 - were you considered a rebellious child?
 - do you generally follow rules to the T?
+% CM JS KR JN
 
-Obsessive
+obsessive
 - I frequently find myself fixated on a single goal or task for long periods.
 - I often think about the same issue or project, even when I’m doing other things.
 - I struggle to let go of plans or ideas, even when they may no longer be practical.
-- I am highly detail-oriented and spend extra time perfecting my work.
-- I feel uneasy or distracted when I can’t focus on my current objective.
+#- I am highly detail-oriented and spend extra time perfecting my work.
+#- I feel uneasy or distracted when I can’t focus on my current objective.
+% A KR
 
 uncompromising
 - I rarely change my stance on issues, even when presented with opposing viewpoints.
 - I prioritize sticking to my principles, even if it creates conflict with others.
 - I believe that bending the rules weakens one's integrity.
-- I expect others to meet my standards and find it difficult to tolerate mistakes.
-- I feel that compromise often leads to unsatisfactory outcomes.
+#- I expect others to meet my standards and find it difficult to tolerate mistakes.
+#- I feel that compromise often leads to unsatisfactory outcomes.
+% A 
 
 secretive
 - I often keep personal information or plans to myself, even from close friends.
 - I prefer to work alone to avoid others interfering with my decisions.
 - I rarely share my thoughts or feelings, fearing they might be used against me.
-- I carefully decide who I can trust before disclosing sensitive information.
-- I believe that keeping certain things private gives me an advantage.
+#- I carefully decide who I can trust before disclosing sensitive information.
+#- I believe that keeping certain things private gives me an advantage.
+% A JS
 
 resilient
 - I can recover quickly from setbacks or failures.
 - I see challenges as opportunities to grow rather than obstacles.
 - I remain determined to succeed, even when circumstances become overwhelming.
-- I find it easy to maintain a positive outlook in difficult situations.
-- I often look back at past struggles and feel proud of how I overcame them.
+#- I find it easy to maintain a positive outlook in difficult situations.
+#- I often look back at past struggles and feel proud of how I overcame them.
+% JS
 
 cunning
 - I can think several steps ahead to anticipate others’ actions.
 - I excel at finding unconventional solutions to problems.
 - I often weigh how others can be useful to my goals.
-- I sometimes withhold or distort information to maintain an advantage.
-- I enjoy strategizing to outmaneuver competition or opposition.
+#- I sometimes withhold or distort information to maintain an advantage.
+#- I enjoy strategizing to outmaneuver competition or opposition.
+% JS V L
 
 ambition
 - I set high goals for myself and work hard to achieve them.
 - I constantly seek ways to improve my position in life.
 - I measure success by how much progress I’ve made toward my aspirations.
-- I believe that achieving great things requires sacrifices.
-- I often imagine myself in positions of power or influence.
+#- I believe that achieving great things requires sacrifices.
+#- I often imagine myself in positions of power or influence.
+% JN KS G CM JS
 
 ruthless
 - I am willing to do whatever it takes to achieve my goals, even at others’ expense.
 - I believe that sentimentality often gets in the way of progress.
 - I don’t hesitate to cut ties with people who no longer serve my objectives.
-- I am comfortable making tough decisions that others may find harsh.
-- I believe that success justifies the means used to achieve it.
+#- I am comfortable making tough decisions that others may find harsh.
+#- I believe that success justifies the means used to achieve it.
+% JN G V
 
 lonely
 - I often feel misunderstood, even by people close to me.
 - I struggle to form deep emotional connections with others.
 - I sometimes feel isolated, even in a crowd.
-- I feel that most people cannot relate to my experiences or mindset.
-- I find myself longing for companionship, but I don’t know how to achieve it.
+#- I feel that most people cannot relate to my experiences or mindset.
+#- I find myself longing for companionship, but I don’t know how to achieve it.
+% A JS
 
 charismatic
 - I am often the center of attention in social settings.
 - People frequently come to me for advice or inspiration.
 - I enjoy persuading others to see things from my perspective.
-- I find it easy to connect with and influence others.
-- I often inspire loyalty and enthusiasm among my peers.
+#- I find it easy to connect with and influence others.
+#- I often inspire loyalty and enthusiasm among my peers.
+% KS A JN G L KR CM JS
 
 authoritarian
 - I prefer to be in charge rather than take direction from others.
 - I believe that strict rules and discipline are necessary for success.
 - I expect others to follow my instructions without question.
-- I feel most comfortable when I have full control over a situation.
-- I think hierarchy and authority are essential for order.
+#- I feel most comfortable when I have full control over a situation.
+#- I think hierarchy and authority are essential for order.
+% KS A JN V L JS
 
 manipulative
 - I can easily influence others to do what I want.
 - I sometimes use others’ emotions to achieve my own goals.
 - I often calculate how to phrase things to get the response I want.
-- I believe that people are tools to be used for specific purposes.
-- I am skilled at presenting myself in ways that benefit me.
+#- I believe that people are tools to be used for specific purposes.
+#- I am skilled at presenting myself in ways that benefit me.
+% L KS A JN KR CM
 
 creative
 - I often come up with unique ideas or solutions to problems.
 - I enjoy experimenting with new methods or techniques in my work.
 - I see connections between concepts that others might overlook.
-- I feel most fulfilled when I’m expressing myself creatively.
-- I enjoy imagining new possibilities and turning them into reality.
+#- I feel most fulfilled when I’m expressing myself creatively.
+#- I enjoy imagining new possibilities and turning them into reality.
+% A L KR JS
 
 visionary
 - I often think about how the future could be different or better.
 - I have a clear vision for how I want my life or projects to unfold.
 - I enjoy planning long-term strategies to achieve my dreams.
-- I believe I can inspire others with my ideas for a better world.
-- I focus more on big-picture goals than on immediate concerns.
+#- I believe I can inspire others with my ideas for a better world.
+#- I focus more on big-picture goals than on immediate concerns.
+% L CM JS
 
 narcissistic
 - I often feel that I deserve special treatment or recognition.
 - I am confident that I am more capable than most people around me.
 - I frequently seek admiration or praise for my accomplishments.
-- I believe my ideas and opinions are usually correct.
-- I focus on building a legacy that reflects my greatness.
+#- I believe my ideas and opinions are usually correct.
+#- I focus on building a legacy that reflects my greatness.
+% L CM JS
 
 persistent
 - I rarely give up on something once I’ve committed to it.
 - I believe that effort and determination can overcome almost any obstacle.
 - I often keep working toward my goals, even when progress is slow.
-- I pride myself on following through with my plans, no matter what.
-- I refuse to let setbacks deter me from achieving success.
+#- I pride myself on following through with my plans, no matter what.
+#- I refuse to let setbacks deter me from achieving success.
+% KR JN
 
 paranoid
 - I am often suspicious of others’ motives, even without clear evidence.
 - I believe that people might be plotting against me or undermining me.
 - I frequently feel the need to protect myself from potential threats.
-- I am wary of trusting others, even those who seem friendly.
-- I find it difficult to shake the feeling that something bad is about to happen.
+#- I am wary of trusting others, even those who seem friendly.
+#- I find it difficult to shake the feeling that something bad is about to happen.
+% JN CM
 
 concerned with self image
 - I am concerned with what people think me
 - I put self worth in my relationships
-- I don't like when people don't like me
+#- I don't like when people don't like me
+% CM JN KR JS
 
 willing to be a martyr
 - I would put my life on the line for something I believe in
 - I would be willing to give my life for a cause I am passionate about
-- I would be willing to make sacrifices for my ideology
+#- I would be willing to make sacrifices for my ideology
+% JS A
 
 end
 
