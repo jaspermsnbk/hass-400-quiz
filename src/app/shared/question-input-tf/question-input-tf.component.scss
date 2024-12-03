@@ -1,0 +1,16 @@
+.q-input {
+    display: grid;
+    grid-template: 1fr 1fr / auto;
+}
+
+.row-1 {
+    grid-row: 1;
+    display: grid;
+    grid-template: auto / 1fr 1fr 1fr 1fr 1fr;
+}
+
+.row-2 {
+    grid-row: 2;
+    display: grid;
+    grid-template: auto / 1fr 1fr 1fr 1fr 1fr;
+}

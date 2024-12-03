@@ -7,10 +7,11 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { Leader } from '../../shared/models/leader.model';
 import { leaders } from '../../shared/data/leaders/leader.data';
 import { detailedDist } from '../../shared/util/vector.util';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-results',
-  imports: [MatCardModule, MatProgressBarModule],
+  imports: [MatCardModule, MatProgressBarModule, HttpClientModule],
   templateUrl: './results.component.html',
   styleUrl: './results.component.scss'
 })
@@ -19,7 +20,7 @@ export class ResultsComponent implements OnInit {
   resultsVecSig?: Signal<ResultVector>
   closestLeader?: Leader
 
-  constructor(private dbService:DbService) {}
+  constructor(private dbService:DbService, private http: HttpClient) {}
   
   ngOnInit(): void {
       log("results page", this.dbService.resultVector())

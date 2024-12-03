@@ -5,7 +5,7 @@
         </h2>
    
     <!-- not sure if the question order should work like this or not -->
-    @for (cat of q.categories; track $index; let catIdx = $index) { 
+    <!-- @for (cat of q.categories; track $index; let catIdx = $index) { 
         @if (DEVMODE) {
             <div>
                 category title: 
@@ -14,6 +14,11 @@
         }
         @for (q of cat.questions; track $index; let qIdx = $index) {
             <app-question [question]="q" (scoreChange)="updateScore($event, catIdx, qIdx)"/>
+        }
+    } -->
+    @if(questions().length > 0){
+        @for (q of questions(); track $index) {
+            <app-question [question]="q" (scoreChange)="updateScore($event, q.catId || 0, q.qId || 0)"/>
         }
     }
     <div class="max-width flex flex-center-a-j" style="margin-top:20px">

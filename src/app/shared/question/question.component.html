@@ -4,7 +4,12 @@
             {{question.title}}
         </mat-card-title>
         <mat-card-content>
-            <app-question-input-a (scoreChange)="updateScore($event)"/>
+            @if(question.type && question.type === "reg"){
+                <app-question-input-a (scoreChange)="updateScore($event)"/>
+            }
+            @if(question.type && question.type === "tf"){
+                <app-question-input-tf (scoreChange)="updateScore($event)" />
+            }
         </mat-card-content>
     </mat-card>
 

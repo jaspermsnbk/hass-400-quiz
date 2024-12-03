@@ -126,7 +126,7 @@ def main():
         temp["name"] = l
         # temp["blurb"] = "\n".join(temp["blurb"])
         # temp["blurb"] = ""
-        temp["resVect"] = leaderScores[l]
+        temp["resVect"] = {"details": leaderScores[l], "basic": []}
         leaderOutArr.append(temp)
 
     # print(leaderOutArr)
@@ -137,24 +137,16 @@ def main():
     for cat in rawQuiz.keys():
         tc = {"title": cat, "questions": []}
         for q in rawQuiz[cat]:
-            tq = {
-                "title": q,
-                "alpha": 1,
-                "type":"reg"
-            }
+            tq = {"title": q, "alpha": 1, "type": "reg"}
             qcount += 1
             tc["questions"].append(tq)
 
         quiz["categories"].append(tc)
-    
+
     for yncat in rawQuizYN.keys():
         tc = {"title": yncat, "questions": []}
         for q in rawQuizYN[yncat]:
-            tq = {
-                "title": q,
-                "alpha": 1,
-                "type": "tf"
-            }
+            tq = {"title": q, "alpha": 1, "type": "tf"}
             ynqcount += 1
             tc["questions"].append(tq)
 

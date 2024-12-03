@@ -15,6 +15,8 @@ export class Question {
   title!: string;
   description?: string;
   type?: QuestionType
+  catId?: number
+  qId?: number
 }
 
 export enum QuestionType {

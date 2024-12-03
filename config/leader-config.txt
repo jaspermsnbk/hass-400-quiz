@@ -29,6 +29,7 @@ leaders
         Obsessive and Uncompromising: Hitler was known for his single-minded pursuit of his ideological goals, which ultimately led to catastrophic consequences for Germany and the world.
 
     picture href:
+    https://cdn.britannica.com/58/129958-050-C0EF01A4/Adolf-Hitler-1933.jpg?w=300
     sources:
 - JN - Joseph Stalin
     blurb:
@@ -44,6 +45,7 @@ leaders
         Propagandist: His use of propaganda cultivated a near-divine image of himself, reinforcing his control over Soviet society.
 
     picture href: 
+    https://cdn.britannica.com/62/95662-050-DA4215DE/Joseph-Stalin.jpg?w=300
     sources:
 - KS - Kim il-Sung
     blurb:
@@ -58,6 +60,7 @@ leaders
         Ruthless and Pragmatic: Kim eliminated political rivals and enforced strict control over all aspects of life, including through purges and mass repression.
 
     picture href: 
+    https://cdn.britannica.com/68/156868-050-A7C586D3/Kim-Il-Sung-1979.jpg?w=300
     sources: 
 - V - Vladimir Putin
     blurb:
@@ -156,23 +159,12 @@ early death of parents
 - one or both of my parents died before the age of 16
 % A
 
-poor upbringing
-#- did you have a less than fortunate childhood?
-- I did not have a lot growing up
-% JN V JS CM
-
 Abused as a child
 #- did you experience any abuse as a child?
 #- have you experienced any abuse throughout adulthood
 - in my childhood I experienced abuse from others
 #- in my adult life I have experienced abuse from others
 % JN
-
-long held hate / grudges
-- I tend to hold grudges
-- I if I don't like something, my opinion is unwilling to change
-#- have you ever had long held hatred for a group of people?
-% JN A KS
 
 served in military
 - have you or are you serving in the military?
@@ -181,6 +173,17 @@ served in military
 end
 
 categories and questions
+
+long held hate / grudges
+- I tend to hold grudges
+- I if I don't like something, my opinion is unwilling to change
+#- have you ever had long held hatred for a group of people?
+% JN A KS
+
+poor upbringing
+#- did you have a less than fortunate childhood?
+- I did not have a lot growing up
+% JN V JS CM
 
 rebellious childhood
 - were you considered a rebellious child?
